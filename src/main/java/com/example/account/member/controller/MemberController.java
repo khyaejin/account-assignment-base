@@ -22,13 +22,19 @@ public class MemberController {
             return result;
     }
 
-/*    //로그인
+    //로그인
     @PostMapping("/login")
-    public ResponseEntity<CustomApiResponse<?>> login(){
+    public ResponseEntity<CustomApiResponse<?>> login(@RequestParam Long userId, @RequestParam String password) {
+        ResponseEntity<CustomApiResponse<?>> result = memberService.login(userId, password);
+        return result;
     }
+
 
     //회원탈퇴
     @DeleteMapping("/withdraw/{userId}")
-    public ResponseEntity<CustomApiResponse<?>> login(){
-    }*/
+    public ResponseEntity<CustomApiResponse<?>> withdraw(@PathVariable Long userId) {
+        ResponseEntity<CustomApiResponse<?>> result = memberService.withdraw(userId);
+        return result;
+    }
+
 }

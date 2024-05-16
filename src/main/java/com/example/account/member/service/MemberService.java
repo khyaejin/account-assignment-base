@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 public interface MemberService {
     ResponseEntity<CustomApiResponse<?>> createMember(MemberCreateDto.Req req);
-
+    ResponseEntity<CustomApiResponse<?>> login(Long userId, String password);
+    ResponseEntity<CustomApiResponse<?>> withdraw(Long userId);
 
 }
