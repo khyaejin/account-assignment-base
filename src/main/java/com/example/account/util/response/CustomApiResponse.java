@@ -1,5 +1,6 @@
 package com.example.account.util.response;
 
+import com.example.account.member.dto.MemberCreateDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ public class CustomApiResponse<T> {
     private String message;
 
     // 성공
-    public static <T> CustomApiResponse<T> createSuccess(int status, T data, String message) {
+    public static <T> CustomApiResponse<T> createSucsess(int status, T data, String message) {
         return new CustomApiResponse<>(status, data, message);
     }
 
@@ -25,5 +26,4 @@ public class CustomApiResponse<T> {
     public static <T> CustomApiResponse<T> createFailWithoutData(int status, String message) {
         return new CustomApiResponse<>(status, null, message);
     }
-
 }

@@ -6,30 +6,14 @@ import lombok.Builder;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 @Getter
 @MappedSuperclass
-@Entity
-@Table(name = "MEMBERS")
-@Builder
+@EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
-    @Id @GeneratedValue
-    @Column(name = "id")
-    private Long id;
-
-    @Column(name = "user_id")
-    private String userId;
-
-    @Column(name = "password")
-    private String password;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "phone")
-    private String phone;
 
     @CreatedDate
     @Column(name = "created_at")
@@ -38,7 +22,6 @@ public class BaseEntity {
     @LastModifiedDate
     @Column(name = "update_at")
     private LocalDateTime updateAt;
-
 
 
 }
