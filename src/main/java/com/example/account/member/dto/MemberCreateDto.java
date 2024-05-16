@@ -42,17 +42,4 @@ public class MemberCreateDto {
                     .build();
         }
     }
-    //게시글 작성 :memberId, updateAt
-    @Getter
-    @Setter
-    @NoArgsConstructor(access = AccessLevel.PROTECTED)
-    public static class CreateMember {
-        private Long memberId;
-        private LocalDateTime updateAt;
-
-        public CreateMember(Long memberId, LocalDateTime updateAt) {
-            this.memberId = memberId;
-            this.updateAt = updateAt;
-        }
-    }
 }
