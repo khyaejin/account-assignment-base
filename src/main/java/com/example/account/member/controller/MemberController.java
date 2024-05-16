@@ -1,5 +1,6 @@
 package com.example.account.member.controller;
 
+import com.example.account.member.dto.LogInDto;
 import com.example.account.member.dto.MemberCreateDto;
 import com.example.account.member.service.MemberService;
 import com.example.account.util.response.CustomApiResponse;
@@ -24,17 +25,15 @@ public class MemberController {
 
     //로그인
     @PostMapping("/login")
-    public ResponseEntity<CustomApiResponse<?>> login(@RequestParam Long userId, @RequestParam String password) {
-        ResponseEntity<CustomApiResponse<?>> result = memberService.login(userId, password);
-        return result;
+    public ResponseEntity<CustomApiResponse<?>> logIn(@RequestBody LogInDto.Req req) {
+        return memberService.logIn(req);
     }
 
 
     //회원탈퇴
     @DeleteMapping("/withdraw/{userId}")
-    public ResponseEntity<CustomApiResponse<?>> withdraw(@PathVariable Long userId) {
-        ResponseEntity<CustomApiResponse<?>> result = memberService.withdraw(userId);
-        return result;
+    public ResponseEntity<CustomApiResponse<?>> deleteMember(@PathVariable("userId") String userId) {
+        return memberService.withdraw(userId);
     }
 
 }
