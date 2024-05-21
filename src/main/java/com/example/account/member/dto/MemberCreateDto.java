@@ -30,7 +30,9 @@ public class MemberCreateDto {
         
         private String password;
         
-        private String password_check;
+        // private String password_check; -> 삭제
+        // 비밀번호와 비밀번호 확인 한의 일치 여부는 프론트에서 확인 후 백엔드로는 비밀번호 값만 넘어옴
+        // 유효성 검사는 대부분 프론트에서 한 후 백엔드로 넘어옴. 이게 비용적 측면에서 유리하기 때문
 
         public Member toEntity(){
             return Member.builder()
@@ -38,7 +40,7 @@ public class MemberCreateDto {
                     .phone(phone)
                     .userId(userId)
                     .password(password)
-                    //패스워드 확인?
+                    //패스워드 확인? -> 프론트측에서 진행
                     .build();
         }
     }
